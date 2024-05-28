@@ -53,17 +53,10 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-
         <li class="menu-item">
-            <a href="{{ route('program.index') }}" class="menu-link">
+            <a href="{{ route('tutor.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Data Program</div>
-            </a>
-        </li>
-        <li class="menu-item">
-            <a href="{{ route('mapel.index') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Data Mata Pelajaran</div>
+                <div data-i18n="Layouts">Data Master Teacher</div>
             </a>
         </li>
         <li class="menu-item">
@@ -79,15 +72,33 @@
             </a>
         </li>
         <li class="menu-item">
-            <a href="{{ route('mapel-regency.index') }}" class="menu-link">
+            <a href="{{ route('program.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
-                <div data-i18n="Layouts">Mapel per Kota</div>
+                <div data-i18n="Layouts">Data Program</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('sub-program.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Data Sub Program</div>
             </a>
         </li>
         <li class="menu-item">
             <a href="{{ route('program-regency.index') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Program per Kota</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('mapel.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Data Mata Pelajaran</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('mapel-regency.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Mapel per Kota</div>
             </a>
         </li>
     </ul>
