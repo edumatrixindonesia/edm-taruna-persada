@@ -39,17 +39,22 @@ class ProvinceController extends Controller
         $request->validate(
             [
                 'name' => ['required', 'string'],
+                'nameCapitalCity' => ['required', 'string'],
             ],
             [
-                'name' => 'Nama Provinsi harus diisi!',
+                'nameCapitalCity.required' => 'Nama Ibu Kota Provinsi harus diisi!',
+                'name.required' => 'Nama Provinsi harus diisi!',
             ]
         );
 
         $slug = Str::lower(Str::of($request->name)->replace(' ', '-', $request->name));
+        $slugCapital = Str::lower(Str::of($request->nameCapitalCity)->replace(' ', '-', $request->nameCapitalCity));
 
         Province::create([
             'name' => $request->name,
             'slug' => $slug,
+            'nameCapitalCity' => $request->nameCapitalCity,
+            'slugCapitalCity' => $slugCapital,
         ]);
 
         return redirect()->route('province.index');
@@ -84,17 +89,22 @@ class ProvinceController extends Controller
         $request->validate(
             [
                 'name' => ['required', 'string'],
+                'nameCapitalCity' => ['required', 'string'],
             ],
             [
                 'name' => 'Nama Provinsi harus diisi!',
+                'nameCapitalCity' => 'Nama Ibu Kota Provinsi harus diisi!',
             ]
         );
 
         $slug = Str::lower(Str::of($request->name)->replace(' ', '-', $request->name));
+        $slugCapital = Str::lower(Str::of($request->nameCapitalCity)->replace(' ', '-', $request->nameCapitalCity));
 
         $provinceId->update([
             'name' => $request->name,
             'slug' => $slug,
+            'nameCapitalCity' => $request->nameCapitalCity,
+            'slugCapitalCity' => $slugCapital,
         ]);
 
         return redirect()->route('province.index');
