@@ -32,4 +32,9 @@ class Program extends Model
     {
         return $this->hasMany(SubProgram::class, 'programId');
     }
+
+    public function mapel()
+    {
+        return $this->belongsTo(Mapel::class, 'programId');
+    }
 }
