@@ -16,7 +16,7 @@
                                 <option value="{{ $province['id'] }}" {{ old('provinceId') == $province['id'] ? 'selected' : '' }}>{{ $province['name'] }}</option>
                                 @endforeach
                             </select>
-                            @error('name')
+                            @error('provinceId')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -24,7 +24,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="defaultFormControlInput" class="form-label">Nama Kabupaten/Kota <span class="text-danger">*</span></label>
-                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="defaultFormControlInput" placeholder="Masukkan Nama Mata Pelajaran" value="{{ old('name') }}" />
+                            <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="defaultFormControlInput" placeholder="Masukkan Nama Kabupaten / Kota" value="{{ old('name') }}" />
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
