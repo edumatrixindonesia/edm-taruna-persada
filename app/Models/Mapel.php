@@ -27,4 +27,9 @@ class Mapel extends Model
     {
         return $this->belongsToMany(Regency::class, 'mapel_regencies', 'mapelId', 'regencyId');
     }
+
+    public function program()
+    {
+        return $this->belongsTo(Program::class, 'programId');
+    }
 }

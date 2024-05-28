@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('mapels', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->foreignUuid('programId')->constrained('programs')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('name');
             $table->string('slug');
             $table->timestamps();

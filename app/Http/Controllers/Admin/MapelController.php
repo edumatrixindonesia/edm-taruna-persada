@@ -6,6 +6,7 @@ use App\Models\Mapel;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Program;
 
 class MapelController extends Controller
 {
@@ -26,7 +27,11 @@ class MapelController extends Controller
      */
     public function create()
     {
-        return view('mapel.create');
+        $program = Program::all();
+
+        return view('mapel.create', [
+            'programs' => $program,
+        ]);
     }
 
     /**
@@ -34,15 +39,21 @@ class MapelController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => ['required', 'string'],
-        ], [
-            'name.required' => 'Nama Mata Pelajaran harus diisi!',
-        ]);
+        $request->validate(
+            [
+                'programId' => ['required', 'exists:programs,id'],
+                'name' => ['required', 'string'],
+            ],
+            [
+                'programId.required' => 'Program harus diisi!',
+                'name.required' => 'Nama Mata Pelajaran harus diisi!',
+            ]
+        );
 
         $slug = Str::lower(Str::of($request->name)->replace(' ', '-', $request->name));
 
         Mapel::create([
+            'programId' => $request->programId,
             'name' => $request->name,
             'slug' => $slug,
         ]);
@@ -63,8 +74,11 @@ class MapelController extends Controller
      */
     public function edit(Mapel $mapelId)
     {
+        $program = Program::all();
+
         return view('mapel.edit', [
             'mapel' =>  $mapelId,
+            'programs' => $program,
         ]);
     }
 
@@ -73,15 +87,21 @@ class MapelController extends Controller
      */
     public function update(Request $request, Mapel $mapelId)
     {
-        $request->validate([
-            'name' => ['required', 'string'],
-        ], [
-            'name.required' => 'Nama Mata Pelajaran harus diisi!',
-        ]);
+        $request->validate(
+            [
+                'programId' => ['required', 'exists:programs,id'],
+                'name' => ['required', 'string'],
+            ],
+            [
+                'programId.required' => 'Program harus diisi!',
+                'name.required' => 'Nama Mata Pelajaran harus diisi!',
+            ]
+        );
 
         $slug = Str::lower(Str::of($request->name)->replace(' ', '-', $request->name));
 
         $mapelId->update([
+            'programId' => $request->programId,
             'name' => $request->name,
             'slug' => $slug,
         ]);
