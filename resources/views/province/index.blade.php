@@ -16,7 +16,7 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Provinsi</th>
-                            <th>Slug</th>
+                            <th>Ibu Kota</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
@@ -25,7 +25,7 @@
                         <tr>
                             <td>{{ (($key++) + 1) }}</td>
                             <td>{{ $province['name'] }}</td>
-                            <td>{{ $province['slug'] }}</td>
+                            <td>{{ $province['nameCapitalCity'] }}</td>
                             <td>
                                 <a href="{{ route('province.edit', $province['id']) }}" class="btn btn-xs btn-warning text-white">Edit</a>
                                 <form action="{{ route('province.destroy', $province['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">

@@ -20,12 +20,16 @@ class ProvinceImport implements ToCollection
             if ($province) {
                 $province->update([
                     'name' => $row[0],
-                    'slug' => Str::lower(Str::of($row[0])->replace(' ', '-', $row[0]))
+                    'slug' => Str::lower(Str::of($row[0])->replace(' ', '-', $row[0])),
+                    'nameCapitalCity' => $row[1],
+                    'slugCapitalCity' => Str::lower(Str::of($row[1])->replace(' ', '-', $row[1])),
                 ]);
             } else {
                 Province::create([
                     'name' => $row[0],
-                    'slug' => Str::lower(Str::of($row[0])->replace(' ', '-', $row[0]))
+                    'slug' => Str::lower(Str::of($row[0])->replace(' ', '-', $row[0])),
+                    'nameCapitalCity' => $row[1],
+                    'slugCapitalCity' => Str::lower(Str::of($row[1])->replace(' ', '-', $row[1])),
                 ]);
             }
         }

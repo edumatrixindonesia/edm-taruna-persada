@@ -15,6 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->string('slug');
+            $table->string('nameCapitalCity');
+            $table->string('slugCapitalCity');
             $table->timestamps();
         });
     }
