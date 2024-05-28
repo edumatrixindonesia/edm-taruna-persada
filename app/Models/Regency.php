@@ -37,4 +37,14 @@ class Regency extends Model
     {
         return $this->belongsToMany(Program::class, 'program_regencies', 'regencyId', 'programId');
     }
+
+    public function subPrograms()
+    {
+        return $this->belongsToMany(SubProgram::class, 'regencies_sub_programs', 'regencyId', 'subProgramId');
+    }
+
+    public function districts()
+    {
+        return $this->hasMany(District::class, 'regencyId');
+    }
 }
