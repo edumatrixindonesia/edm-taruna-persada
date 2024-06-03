@@ -29,7 +29,7 @@ class LandingController extends Controller
         $request->validate([
             'namaSection' => ['required'],
             'title' => ['required'],
-            'content' => ['required'],
+            'content' => ['sometimes'],
             'image_1' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
             'image_2' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
             'image_3' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
@@ -122,7 +122,7 @@ class LandingController extends Controller
         $request->validate([
             'namaSection' => ['required'],
             'title' => ['required'],
-            'content' => ['required'],
+            'content' => ['sometimes'],
             'image_1' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
             'image_2' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
             'image_3' => ['sometimes', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],

@@ -26,7 +26,7 @@
                             <td>{{ (($key++) + 1) }}</td>
                             <td>{{ $page['namaSection'] }}</td>
                             <td>{{ $page['title'] }}</td>
-                            <td>{!! $page['content'] !!}</td>
+                            <td>{!! $page['content'] == null ? '-' : $page['content'] !!}</td>
                             <td>
                                 <a class="btn btn-xs btn-warning text-white" href="{{ route('page.edit',$page['id']) }}">Edit</a>
                                 <form action="{{ route('page.destroy', $page['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">

@@ -1,9 +1,5 @@
 @extends('layout.app')
 
-@push('plugin-style')
-<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-@endpush
-
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
@@ -32,7 +28,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="defaultFormControlInput" class="form-label">Content <span class="text-danger">*</span></label>
-                            <textarea name="content" id="content"></textarea>
+                            <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="10"></textarea>
                             @error('content')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -92,13 +88,3 @@
     </div>
 </div>
 @endsection
-
-@push('custom-script')
-<script>
-    ClassicEditor
-        .create(document.querySelector('#content'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-@endpush
