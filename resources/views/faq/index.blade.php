@@ -8,28 +8,26 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
         <div class="card-body">
-            <a class="btn btn-sm btn-primary mb-3" href="{{ route('page.create') }}">Tambah</a>
+            <a class="btn btn-sm btn-primary mb-3" href="{{ route('faq.create') }}">Tambah</a>
             <div class="table-responsive">
                 <table id="dataTableExample" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Section</th>
-                            <th>Title</th>
-                            <th>Content</th>
+                            <th>Pertanyaan</th>
+                            <th>Jawaban</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pages as $key => $page)
+                        @foreach ($faqs as $key => $faq)
                         <tr>
                             <td>{{ (($key++) + 1) }}</td>
-                            <td>{{ $page['namaSection'] }}</td>
-                            <td>{{ $page['title'] }}</td>
-                            <td>{!! $page['content'] == null ? '-' : $page['content'] !!}</td>
+                            <td>{{ $faq['question'] }}</td>
+                            <td>{{ $faq['answer'] }}</td>
                             <td>
-                                <a class="btn btn-xs btn-warning text-white" href="{{ route('page.edit',$page['id']) }}">Edit</a>
-                                <form action="{{ route('page.destroy', $page['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
+                                <a class="btn btn-xs btn-warning text-white" href="{{ route('faq.edit',$faq['id']) }}">Edit</a>
+                                <form action="{{ route('faq.destroy', $faq['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button class="btn btn-xs btn-danger">Delete</button>

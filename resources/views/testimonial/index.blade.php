@@ -8,28 +8,28 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
         <div class="card-body">
-            <a class="btn btn-sm btn-primary mb-3" href="{{ route('page.create') }}">Tambah</a>
+            <a class="btn btn-sm btn-primary mb-3" href="{{ route('testimonial.create') }}">Tambah</a>
             <div class="table-responsive">
                 <table id="dataTableExample" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Section</th>
-                            <th>Title</th>
-                            <th>Content</th>
+                            <th>Foto</th>
+                            <th>Nama Siswa</th>
+                            <th>Deskripsi</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($pages as $key => $page)
+                        @foreach ($testimonials as $key => $testimonial)
                         <tr>
                             <td>{{ (($key++) + 1) }}</td>
-                            <td>{{ $page['namaSection'] }}</td>
-                            <td>{{ $page['title'] }}</td>
-                            <td>{!! $page['content'] == null ? '-' : $page['content'] !!}</td>
+                            <td><img src="{{ asset('storage/'.$testimonial['photo']) }}" width="50" /></td>
+                            <td>{{ $testimonial['siswaName'] }}</td>
+                            <td>{{ $testimonial['description'] }}</td>
                             <td>
-                                <a class="btn btn-xs btn-warning text-white" href="{{ route('page.edit',$page['id']) }}">Edit</a>
-                                <form action="{{ route('page.destroy', $page['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
+                                <a class="btn btn-xs btn-warning text-white" href="{{ route('testimonial.edit',$testimonial['id']) }}">Edit</a>
+                                <form action="{{ route('testimonial.destroy', $testimonial['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button class="btn btn-xs btn-danger">Delete</button>

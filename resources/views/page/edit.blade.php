@@ -1,9 +1,5 @@
 @extends('layout.app')
 
-@push('plugin-style')
-<script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
-@endpush
-
 @section('content')
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="row">
@@ -15,7 +11,7 @@
                         @method('PUT')
                         <div class="form-group mb-3">
                             <label for="defaultFormControlInput" class="form-label">Nama Section <span class="text-danger">*</span></label>
-                            <input type="text" name="namaSection" class="form-control @error('namaSection') is-invalid @enderror" id="defaultFormControlInput" placeholder="Masukkan Nama Section" value="{{ $page['namaSection'] }}" />
+                            <input type="text" name="namaSection" class="form-control @error('namaSection') is-invalid @enderror" id="defaultFormControlInput" placeholder="Masukkan Nama Section" value="{{ $page['namaSection'] }}" readonly />
                             @error('namaSection')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -33,7 +29,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="defaultFormControlInput" class="form-label">Content <span class="text-danger">*</span></label>
-                            <textarea name="content" id="content">{{ $page['content'] }}</textarea>
+                            <textarea name="content" class="form-control @error('content') is-invalid @enderror" rows="10">{{ $page['content'] }}</textarea>
                             @error('content')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -93,13 +89,3 @@
     </div>
 </div>
 @endsection
-
-@push('custom-script')
-<script>
-    ClassicEditor
-        .create(document.querySelector('#content'))
-        .catch(error => {
-            console.error(error);
-        });
-</script>
-@endpush

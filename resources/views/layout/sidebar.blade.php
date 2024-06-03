@@ -88,5 +88,17 @@
                 <div data-i18n="Layouts">Landing Page</div>
             </a>
         </li>
+        <li class="menu-item">
+            <a href="{{ route('testimonial.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">Testimonial</div>
+            </a>
+        </li>
+        <li class="menu-item">
+            <a href="{{ route('faq.index') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-layout"></i>
+                <div data-i18n="Layouts">FaQ</div>
+            </a>
+        </li>
     </ul>
 </aside>
