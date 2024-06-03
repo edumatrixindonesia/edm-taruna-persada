@@ -13,6 +13,9 @@ use App\Http\Controllers\Admin\MasterTeacherController;
 use App\Http\Controllers\Admin\ProgramRegencyController;
 use App\Http\Controllers\Admin\SubProgramRegencyController;
 use App\Http\Controllers\DistrictController;
+use App\Http\Controllers\FAQController;
+use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\TestimonialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,11 +28,12 @@ use App\Http\Controllers\DistrictController;
 |
 */
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::get('/', [HomepageController::class, 'index']);
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard')->middleware('auth');
 
+Route::prefix('admin')->group(function () {
     Route::prefix('program')->controller(ProgramController::class)->name('program.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -130,6 +134,24 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/{landingId}/edit', 'edit')->name('edit');
         Route::put('/{landingId}/update', 'update')->name('update');
         Route::delete('/{landingId}/delete', 'destroy')->name('destroy');
+    });
+
+    Route::prefix('testimonial')->controller(TestimonialController::class)->name('testimonial.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{testimonialId}/edit', 'edit')->name('edit');
+        Route::put('/{testimonialId}/update', 'update')->name('update');
+        Route::delete('/{testimonialId}/delete', 'destroy')->name('destroy');
+    });
+
+    Route::prefix('faq')->controller(FAQController::class)->name('faq.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{faqId}/edit', 'edit')->name('edit');
+        Route::put('/{faqId}/update', 'update')->name('update');
+        Route::delete('/{faqId}/delete', 'destroy')->name('destroy');
     });
 
     Route::middleware('auth')->group(function () {

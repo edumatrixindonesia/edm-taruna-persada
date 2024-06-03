@@ -5,12 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title>Taruna Persada</title>
+    <title>Bimbel TNI/Polri dan Sekolah Kedinasan Terbaik - Taruna Persada</title>
+
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{{ asset('assets/logo.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo/taruna-persada.ico') }}" />
     <!-- <link rel="shortcut icon" href="{{ asset('assets/logo.ico') }}"> -->
 
 
