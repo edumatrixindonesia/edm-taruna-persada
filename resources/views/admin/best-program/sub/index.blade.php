@@ -8,31 +8,28 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <div class="card">
         <div class="card-body">
-            <a class="btn btn-sm btn-primary mb-3" href="{{ route('best-program.create') }}">Tambah</a>
+            <a class="btn btn-sm btn-primary mb-3" href="{{ route('akurasi.create') }}">Tambah</a>
             <div class="table-responsive">
                 <table id="dataTableExample" class="table">
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Image</th>
-                            <th>Nama Program</th>
-                            <th>Slug</th>
+                            <th>Sub Program</th>
+                            <th>Paket</th>
+                            <th>Benefit</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($programs as $key => $program)
+                        @foreach ($subs as $key => $sub)
                         <tr>
                             <td>{{ (($key++) + 1) }}</td>
-                            <td><img src="{{ asset('storage/'.$program['image']) }}" width="50"></td>
-                            <td>{{ $program['name'] }}</td>
-                            <td>{{ $program['slug'] }}</td>
+                            <td>{{ $sub['sub'] }}</td>
+                            <td>{{ $sub['package'] }}</td>
+                            <td><img src="{{ asset('storage/'.$sub['benefit']) }}" width="50"></td>
                             <td>
-                                @if ($program['slug'] == 'akurasi')
-                                <a class="btn btn-xs btn-primary" href="{{ route('akurasi.index') }}">Detail</a>
-                                @endif
-                                <a class="btn btn-xs btn-warning text-white" href="{{ route('best-program.edit',$program['id']) }}">Edit</a>
-                                <form action="{{ route('best-program.destroy', $program['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
+                                <a class="btn btn-xs btn-warning text-white" href="{{ route('akurasi.edit',$sub['id']) }}">Edit</a>
+                                <form action="{{ route('akurasi.destroy', $sub['id']) }}" method="POST" onsubmit="return confirm('Are you sure?');" style="display: inline-block;">
                                     <input type="hidden" name="_method" value="DELETE">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <button class="btn btn-xs btn-danger">Delete</button>

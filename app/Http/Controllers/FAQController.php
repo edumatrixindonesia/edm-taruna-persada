@@ -34,13 +34,11 @@ class FAQController extends Controller
         $request->validate([
             'question' => ['required'],
             'answer' => ['required'],
-            'sequence' => ['required'],
         ]);
 
         FAQ::create([
             'question' => $request->question,
             'answer' => $request->answer,
-            'sequence' => $request->sequence,
         ]);
 
         return redirect()->route('faq.index');
@@ -72,13 +70,11 @@ class FAQController extends Controller
         $request->validate([
             'question' => ['required'],
             'answer' => ['required'],
-            'sequence' => ['required'],
         ]);
 
         $faqId->update([
             'question' => $request->question,
             'answer' => $request->answer,
-            'sequence' => $request->sequence,
         ]);
 
         return redirect()->route('faq.index');

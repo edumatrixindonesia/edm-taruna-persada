@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AccuracyProgramController;
 use App\Http\Controllers\Admin\BestProgramController;
 use App\Http\Controllers\Admin\GalleryController;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ use App\Http\Controllers\TestimonialController;
 
 Route::get('/', [HomepageController::class, 'index']);
 Route::get('/program/{program}', [SubPageController::class, 'program']);
+Route::get('/wilayah/{wilayah}', [SubPageController::class, 'wilayah']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -150,6 +152,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/{bestProgramId}/edit', 'edit')->name('edit');
         Route::put('/{bestProgramId}/update', 'update')->name('update');
         Route::delete('/{bestProgramId}/delete', 'destroy')->name('destroy');
+    });
+
+    Route::prefix('best-program/akurasi')->controller(AccuracyProgramController::class)->name('akurasi.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{accuracyProgramId}/edit', 'edit')->name('edit');
+        Route::put('/{accuracyProgramId}/update', 'update')->name('update');
+        Route::delete('/{accuracyProgramId}/delete', 'destroy')->name('destroy');
     });
 
     Route::prefix('media-massa')->controller(MediaMassaController::class)->name('media-massa.')->group(function () {
