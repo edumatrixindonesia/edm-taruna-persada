@@ -16,7 +16,7 @@ class SubProgramRegencyController extends Controller
     {
         $subprogram = SubProgram::with('regencies')->get();
 
-        return view('subProgramPerKota.index', [
+        return view('admin.subProgramPerKota.index', [
             'subPrograms' => $subprogram,
         ]);
     }
@@ -29,7 +29,7 @@ class SubProgramRegencyController extends Controller
         $program = SubProgram::all();
         $regency = Regency::all();
 
-        return view('subProgramPerKota.create', [
+        return view('admin.subProgramPerKota.create', [
             'programs' => $program,
             'regencies' => $regency,
         ]);

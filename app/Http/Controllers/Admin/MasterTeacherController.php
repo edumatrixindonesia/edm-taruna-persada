@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use App\Models\Mapel;
-use App\Models\MasterTeacher;
 use App\Models\Program;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\MasterTeacher;
+use App\Http\Controllers\Controller;
 
 class MasterTeacherController extends Controller
 {
@@ -17,7 +18,7 @@ class MasterTeacherController extends Controller
     {
         $masterTeacher = MasterTeacher::all();
 
-        return view('tutor.index', [
+        return view('admin.tutor.index', [
             'tutors' => $masterTeacher,
         ]);
     }
@@ -30,7 +31,7 @@ class MasterTeacherController extends Controller
         $mapel = Mapel::all();
         $program = Program::all();
 
-        return view('tutor.create', [
+        return view('admin.tutor.create', [
             'mapels' => $mapel,
             'programs' => $program,
         ]);
@@ -42,22 +43,40 @@ class MasterTeacherController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'theme' => ['required'],
             'name' => ['required'],
-            'mapel' => ['required'],
-            'program' => ['required'],
+            'theme' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg', 'max:1024'],
+            'jenjang' => ['required'],
+            'university' => ['required'],
         ], [
             'theme.required' => 'Tema harus diisi!',
             'name.required' => 'Nama Master Teacher harus diisi!',
-            'mapel.required' => 'Mata Pelajaran harus diisi!',
-            'program.required' => 'Program harus diisi!',
+            'image.required' => 'Foto harus diisi!',
+            'jenjang.required' => 'Jenjang Pendidikan harus diisi!',
+            'university.required' => 'Nama Universitas harus diisi!',
         ]);
 
+        $slug = Str::lower(Str::of($request->name)->replace(' ', '-', $request->name));
+
+        $file = $request->file('image');
+        $fileName = Str::of($file->getClientOriginalName())->replace($file->getClientOriginalName(), $slug, $file->getClientOriginalName());
+        $fileExtension = $file->getClientOriginalExtension();
+        $name = $fileName . '.' . $fileExtension;
+        $fileUrl = $file->storeAs('images/master-teacher', $name);
+
+        $file2 = $request->file('theme');
+        $fileName2 = Str::of($file2->getClientOriginalName())->replace($file2->getClientOriginalName(), 'background-' . $slug, $file2->getClientOriginalName());
+        $fileExtension2 = $file2->getClientOriginalExtension();
+        $name2 = $fileName2 . '.' . $fileExtension2;
+        $fileUrl2 = $file2->storeAs('images/master-teacher', $name2);
+
         MasterTeacher::create([
-            'theme' => $request->theme,
+            'theme' => $fileUrl2,
             'name' => $request->name,
-            'mapel' => implode(', ', $request->mapel),
-            'program' => implode(', ', $request->program),
+            'image' => $fileUrl,
+            'jenjang' => $request->jenjang,
+            'university' => $request->university,
+            'description' => $request->description,
         ]);
 
         return redirect()->route('tutor.index');
@@ -82,7 +101,7 @@ class MasterTeacherController extends Controller
         $arr_mapel = explode(', ', $masterTeacherId['mapel']);
         $arr_program = explode(', ', $masterTeacherId['program']);
 
-        return view('tutor.edit', [
+        return view('admin.tutor.edit', [
             'mapels' => $mapel,
             'programs' => $program,
             'tutor' => $masterTeacherId,

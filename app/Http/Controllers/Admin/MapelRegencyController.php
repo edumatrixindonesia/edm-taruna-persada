@@ -16,7 +16,7 @@ class MapelRegencyController extends Controller
     {
         $mapelReg = Mapel::with('regencies')->get();
 
-        return view('mapelPerKota.index', [
+        return view('admin.mapelPerKota.index', [
             'mapels' => $mapelReg,
         ]);
     }
@@ -29,7 +29,7 @@ class MapelRegencyController extends Controller
         $mapel = Mapel::all();
         $regency = Regency::with('province')->get();
 
-        return view('mapelPerKota.create', [
+        return view('admin.mapelPerKota.create', [
             'mapels' => $mapel,
             'regencies' => $regency,
         ]);
@@ -79,7 +79,7 @@ class MapelRegencyController extends Controller
         $mapel = Mapel::where('id', $mapelId)->with('regencies')->get();
         $regency = Regency::with('province')->get();
 
-        return view('mapelPerKota.edit', [
+        return view('admin.mapelPerKota.edit', [
             'mapels' => $mapels,
             'mapel' => $mapel,
             'mapelId' => $mapelId,

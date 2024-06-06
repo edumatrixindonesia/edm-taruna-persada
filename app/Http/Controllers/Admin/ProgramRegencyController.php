@@ -13,7 +13,7 @@ class ProgramRegencyController extends Controller
     {
         $programs = Program::with('regencies')->get();
 
-        return view('programPerKota.index', [
+        return view('admin.programPerKota.index', [
             'programs' => $programs,
         ]);
     }
@@ -23,7 +23,7 @@ class ProgramRegencyController extends Controller
         $regency = Regency::all();
         $program = Program::all();
 
-        return view('programPerKota.create', [
+        return view('admin.programPerKota.create', [
             'regencies' => $regency,
             'programs' => $program,
         ]);

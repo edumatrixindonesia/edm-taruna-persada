@@ -19,7 +19,7 @@ class RegencyController extends Controller
     {
         $regency = Regency::with('province')->get();
 
-        return view('regency.index', [
+        return view('admin.regency.index', [
             'regencies' => $regency,
         ]);
     }
@@ -31,7 +31,7 @@ class RegencyController extends Controller
     {
         $province = Province::all();
 
-        return view('regency.create', [
+        return view('admin.regency.create', [
             'provinces' => $province,
         ]);
     }
@@ -78,7 +78,7 @@ class RegencyController extends Controller
     {
         $province = Province::all();
 
-        return view('regency.edit', [
+        return view('admin.regency.edit', [
             'provinces' => $province,
             'regency' => $regencyId,
         ]);

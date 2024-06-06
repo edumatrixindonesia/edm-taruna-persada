@@ -14,14 +14,14 @@ class LandingController extends Controller
     {
         $page = Landing::all();
 
-        return view('page.index', [
+        return view('admin.page.index', [
             'pages' => $page,
         ]);
     }
 
     public function create()
     {
-        return view('page.create');
+        return view('admin.page.create');
     }
 
     public function store(Request $request)
@@ -112,7 +112,7 @@ class LandingController extends Controller
 
     public function edit(Landing $landingId)
     {
-        return view('page.edit', [
+        return view('admin.page.edit', [
             'page' => $landingId,
         ]);
     }

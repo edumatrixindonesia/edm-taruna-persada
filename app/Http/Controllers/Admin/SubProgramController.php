@@ -17,7 +17,7 @@ class SubProgramController extends Controller
     {
         $subProgram = SubProgram::with('program')->get();
 
-        return view('subProgram.index', [
+        return view('admin.subProgram.index', [
             'subPrograms' => $subProgram,
         ]);
     }
@@ -29,7 +29,7 @@ class SubProgramController extends Controller
     {
         $program = Program::all();
 
-        return view('subProgram.create', [
+        return view('admin.subProgram.create', [
             'programs' => $program,
         ]);
     }
@@ -73,7 +73,7 @@ class SubProgramController extends Controller
     {
         $program = Program::all();
 
-        return view('subProgram.edit', [
+        return view('admin.subProgram.edit', [
             'programs' => $program,
             'subProgram' => $subProgramId,
         ]);

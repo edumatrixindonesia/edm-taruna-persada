@@ -18,7 +18,7 @@ class DistrictController extends Controller
     {
         $district = District::with('regency')->get();
 
-        return view('district.index', [
+        return view('admin.district.index', [
             'districts' => $district,
         ]);
     }
@@ -29,7 +29,7 @@ class DistrictController extends Controller
     public function create()
     {
         $regency = Regency::all();
-        return view('district.create', [
+        return view('admin.district.create', [
             'regencies' => $regency,
         ]);
     }
@@ -55,7 +55,7 @@ class DistrictController extends Controller
             'slug' => $slug,
         ]);
 
-        return redirect()->route('district.index');
+        return redirect()->route('admin.district.index');
     }
 
     public function importExcel(Request $request)
@@ -66,7 +66,7 @@ class DistrictController extends Controller
 
         Excel::import(new DistrictImport, $request->file('file'));
 
-        return redirect()->route('district.index');
+        return redirect()->route('admin.district.index');
     }
 
     /**
@@ -76,7 +76,7 @@ class DistrictController extends Controller
     {
         $regency = Regency::all();
 
-        return view('district.edit', [
+        return view('admin.district.edit', [
             'regencies' => $regency,
             'district' => $districtId,
         ]);
@@ -103,7 +103,7 @@ class DistrictController extends Controller
             'slug' => $slug,
         ]);
 
-        return redirect()->route('district.index');
+        return redirect()->route('admin.district.index');
     }
 
     /**
@@ -113,6 +113,6 @@ class DistrictController extends Controller
     {
         $districtId->delete();
 
-        return redirect()->route('district.index');
+        return redirect()->route('admin.district.index');
     }
 }

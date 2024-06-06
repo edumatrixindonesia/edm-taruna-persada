@@ -18,7 +18,7 @@ class ProvinceController extends Controller
     {
         $province = Province::all();
 
-        return view('province.index', [
+        return view('admin.province.index', [
             'provinces' => $province,
         ]);
     }
@@ -28,7 +28,7 @@ class ProvinceController extends Controller
      */
     public function create()
     {
-        return view('province.create');
+        return view('admin.province.create');
     }
 
     /**
@@ -76,7 +76,7 @@ class ProvinceController extends Controller
      */
     public function edit(Province $provinceId)
     {
-        return view('province.edit', [
+        return view('admin.province.edit', [
             'province' => $provinceId,
         ]);
     }

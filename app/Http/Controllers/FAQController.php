@@ -13,7 +13,7 @@ class FAQController extends Controller
     public function index()
     {
         $faqs = FAQ::orderby('sequence', 'asc')->get();
-        return view('faq.index', [
+        return view('admin.faq.index', [
             'faqs' => $faqs,
         ]);
     }
@@ -23,7 +23,7 @@ class FAQController extends Controller
      */
     public function create()
     {
-        return view('faq.create');
+        return view('admin.faq.create');
     }
 
     /**
@@ -59,7 +59,7 @@ class FAQController extends Controller
      */
     public function edit(FAQ $faqId)
     {
-        return view('faq.edit', [
+        return view('admin.faq.edit', [
             'faq' => $faqId,
         ]);
     }
