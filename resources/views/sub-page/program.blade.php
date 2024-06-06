@@ -28,6 +28,23 @@
     </div>
 </div>
 
+@if($program['slug'] == 'akurasi')
+<!-- BENEFIT -->
+<div class="parent-benefit">
+    <h1 class="title-benefit-akurasi">
+        BANYAK <span class="text-benefit">BENEFIT</span> YANG DITAWARKAN
+    </h1>
+    <!-- ALFA -->
+    @foreach ($benefits as $key => $benefit)
+    <h1 class="title-alfa">&nbsp;{{ $key }}</h1>
+    <div class="parent-pricelist-alfa">
+        @foreach ($benefit as $key => $benefit2)
+        <img class="img-pricelist-alfa" src="{{ asset('storage/' . $benefit2['benefit']) }}" alt="" />
+        @endforeach
+    </div>
+    @endforeach
+</div>
+@else
 <!-- BENEFIT -->
 <div class="parent-benefit">
     <h1 class="title-benefit-presisi">
@@ -38,6 +55,7 @@
         <img class="logotp-edm" src="{{ asset('assets/img/logo/tarunapersada_by_edumatrix.png') }}" alt="" />
     </div>
 </div>
+@endif
 
 <!-- DIVINDER -->
 <div class="parent-divinder">
