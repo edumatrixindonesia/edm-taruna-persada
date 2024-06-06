@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HERO */
+.bg-wilayah {
+    display: flex;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    background-image: url("/assets/img/bg_hero.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    /* height: 100vh; */
+    padding-bottom: 20px;
+}
+.text-image-wilayah {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+    padding-left: 10%;
+    /* padding-right: 10%; */
+    gap: 15px;
+}
+.title-wilayah {
+    font-size: 50px;
+    color: white;
+    line-height: 60px;
+    text-transform: uppercase;
+}
+.deskripsi-wilayah {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: justify;
+}
+.globe-tp {
+    width: 45%;
+}
+.btn-wilayah {
+    background: #df2028;
+    color: white;
+    border: 1px solid transparent;
+    padding: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+/* BODY */
+.parent-body-wilayah {
+    height: 100vh;
+    width: 100%;
+    background-image: url("/assets/img/bg_globe.jpeg");
+    background-size: cover;
+    background-position: top;
+    height: 100vh;
+}
+
+/* RESPONSIVE */
+/* PHONE */
+@media only screen and (min-width: 320px) and (max-width: 896px) {
+    .text-image-wilayah {
+        display: grid;
+        place-items: center;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 8%;
+    }
+    .title-benefit-wilayah {
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+    .parent-benefit {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .parent-pricelist-logo {
+        display: grid;
+        place-items: center;
+        gap: 10px;
+    }
+    .img-pricelist {
+        width: 100%;
+    }
+    .title-wilayah {
+        width: 100%;
+        font-size: 45px;
+        line-height: 45px;
+        margin-bottom: 20px;
+    }
+    .deskripsi-wilayah {
+        font-size: 15px;
+        margin-top: 0;
+    }
+    .btn-wilayah {
+        width: 100%;
+    }
+    .globe-tp {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .title-wilayah {
+        font-size: 35px;
+    }
+}
+
+/* TABLET */
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
+    .text-image-wilayah {
+        display: grid;
+        place-items: center;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 18%;
+    }
+    .globe-tp {
+        width: 50%;
+    }
+    .btn-wilayah {
+        width: 100%;
+    }
+    .globe-tp {
+        margin-top: 50px;
+    }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 903px) and (max-width: 1537px) {
+    .text-image-wilayah {
+        padding-left: 3%;
+        padding-right: 0;
+    }
+}
