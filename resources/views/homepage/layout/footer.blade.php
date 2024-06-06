@@ -7,7 +7,7 @@
             <div class="footer-content-column">
                 <div class="footer-logo">
                     <a class="footer-logo-link" href="#">
-                        <img class="logo-footer-tp" src="{{ asset('assets/img/Taruna_Persada_tanpa_byedumatrix.png') }}" alt="" />
+                        <img class="logo-footer-tp" src="{{ asset('assets/img/logo/Taruna_Persada_tanpa_byedumatrix.png') }}" alt="" />
                     </a>
                 </div>
             </div>

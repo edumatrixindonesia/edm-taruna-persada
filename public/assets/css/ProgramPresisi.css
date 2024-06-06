@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* HERO */
+.bg-hero-presisi {
+    height: auto;
+    width: 100%;
+    background-image: url("/assets/img/bg_presisi.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.text-image-presisi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    padding-left: 10%;
+    padding-right: 10%;
+    gap: 15px;
+}
+.title-presisi {
+    font-size: 80px;
+    color: white;
+    line-height: 80px;
+    width: 50%;
+}
+.text-presisi {
+    color: rgb(192, 123, 19);
+}
+.deskripsi-presisi {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: justify;
+}
+.model-presisi {
+    bottom: 0;
+    width: 100%;
+}
+.btn-presisi {
+    background: #df2028;
+    color: white;
+    border: 1px solid transparent;
+    padding: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+/* BENEFIT */
+.parent-benefit {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 3%;
+    background: #000000;
+}
+.title-benefit-presisi {
+    font-size: 60px;
+    color: white;
+    line-height: 60px;
+    width: 40%;
+}
+.text-benefit {
+    color: rgb(192, 123, 19);
+}
+.parent-pricelist-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+.img-pricelist {
+    width: 60%;
+}
+.logotp-edm {
+    width: 40%;
+}
+
+/* RESPONSIVE */
+/* PHONE */
+@media only screen and (min-width: 320px) and (max-width: 896px) {
+    .text-image-presisi {
+        display: grid;
+        place-items: center;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 8%;
+    }
+    .title-benefit-presisi {
+        width: 100%;
+        font-size: 30px;
+        text-align: center;
+        line-height: 30px;
+    }
+    .parent-benefit {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .parent-pricelist-logo {
+        display: grid;
+        place-items: center;
+        gap: 10px;
+    }
+    .img-pricelist {
+        width: 100%;
+    }
+    .title-presisi {
+        width: 100%;
+        font-size: 45px;
+        line-height: 45px;
+        margin-bottom: 20px;
+    }
+    .deskripsi-presisi {
+        font-size: 15px;
+        margin-top: 0;
+    }
+    .btn-presisi {
+        width: 100%;
+    }
+}
+
+/* TABLET */
+@media only screen and (min-width: 768px) and (max-width: 1366px) {
+    .img-pricelist {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .parent-pricelist-logo {
+        justify-content: normal;
+        gap: 10px;
+    }
+    .text-image-presisi {
+        display: grid;
+        padding-left: 3%;
+        padding-right: 3%;
+        padding-top: 13%;
+    }
+    .btn-presisi {
+        width: 100%;
+    }
+    .parent-benefit {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+    .title-benefit-presisi {
+        width: 100%;
+        text-align: center;
+        font-size: 55px;
+        line-height: 60px;
+    }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 903px) and (max-width: 1537px) {
+    .text-image-presisi,
+    .parent-benefit {
+        padding-left: 3%;
+        padding-right: 3%;
+    }
+}

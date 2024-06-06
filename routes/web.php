@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\BestProgramController;
+use App\Http\Controllers\Admin\GalleryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\MapelController;
@@ -10,11 +12,14 @@ use App\Http\Controllers\Admin\ProvinceController;
 use App\Http\Controllers\Admin\SubProgramController;
 use App\Http\Controllers\Admin\MapelRegencyController;
 use App\Http\Controllers\Admin\MasterTeacherController;
+use App\Http\Controllers\Admin\MediaMassaController;
 use App\Http\Controllers\Admin\ProgramRegencyController;
+use App\Http\Controllers\Admin\PromoController;
 use App\Http\Controllers\Admin\SubProgramRegencyController;
 use App\Http\Controllers\DistrictController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\HomepageController;
+use App\Http\Controllers\SubPageController;
 use App\Http\Controllers\TestimonialController;
 
 /*
@@ -29,6 +34,8 @@ use App\Http\Controllers\TestimonialController;
 */
 
 Route::get('/', [HomepageController::class, 'index']);
+Route::get('/program/{program}', [SubPageController::class, 'program']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
@@ -136,6 +143,33 @@ Route::prefix('admin')->group(function () {
         Route::delete('/{landingId}/delete', 'destroy')->name('destroy');
     });
 
+    Route::prefix('best-program')->controller(BestProgramController::class)->name('best-program.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{bestProgramId}/edit', 'edit')->name('edit');
+        Route::put('/{bestProgramId}/update', 'update')->name('update');
+        Route::delete('/{bestProgramId}/delete', 'destroy')->name('destroy');
+    });
+
+    Route::prefix('media-massa')->controller(MediaMassaController::class)->name('media-massa.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        // Route::get('/{testimonialId}/edit', 'edit')->name('edit');
+        // Route::put('/{testimonialId}/update', 'update')->name('update');
+        Route::delete('/{mediaMassaId}/delete', 'destroy')->name('destroy');
+    });
+
+    Route::prefix('gallery')->controller(GalleryController::class)->name('gallery.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        // Route::get('/{testimonialId}/edit', 'edit')->name('edit');
+        // Route::put('/{testimonialId}/update', 'update')->name('update');
+        Route::delete('/{galleryId}/delete', 'destroy')->name('destroy');
+    });
+
     Route::prefix('testimonial')->controller(TestimonialController::class)->name('testimonial.')->group(function () {
         Route::get('/', 'index')->name('index');
         Route::get('/create', 'create')->name('create');
@@ -143,6 +177,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/{testimonialId}/edit', 'edit')->name('edit');
         Route::put('/{testimonialId}/update', 'update')->name('update');
         Route::delete('/{testimonialId}/delete', 'destroy')->name('destroy');
+    });
+
+    Route::prefix('promo')->controller(PromoController::class)->name('promo.')->group(function () {
+        Route::get('/', 'index')->name('index');
+        Route::get('/create', 'create')->name('create');
+        Route::post('/store', 'store')->name('store');
+        Route::get('/{promoId}/edit', 'edit')->name('edit');
+        Route::put('/{promoId}/update', 'update')->name('update');
+        Route::delete('/{promoId}/delete', 'destroy')->name('destroy');
     });
 
     Route::prefix('faq')->controller(FAQController::class)->name('faq.')->group(function () {

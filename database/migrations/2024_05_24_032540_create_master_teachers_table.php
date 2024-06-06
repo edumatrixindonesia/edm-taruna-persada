@@ -15,8 +15,10 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('theme');
             $table->string('name');
-            $table->string('mapel');
-            $table->string('program');
+            $table->string('image');
+            $table->string('jenjang');
+            $table->string('university');
+            $table->string('description');
             $table->timestamps();
         });
     }

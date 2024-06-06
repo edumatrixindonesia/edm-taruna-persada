@@ -17,7 +17,7 @@ class MapelController extends Controller
     {
         $mapels = Mapel::all();
 
-        return view('mapel.index', [
+        return view('admin.mapel.index', [
             'mapels' => $mapels,
         ]);
     }
@@ -29,7 +29,7 @@ class MapelController extends Controller
     {
         $program = Program::all();
 
-        return view('mapel.create', [
+        return view('admin.mapel.create', [
             'programs' => $program,
         ]);
     }
@@ -76,7 +76,7 @@ class MapelController extends Controller
     {
         $program = Program::all();
 
-        return view('mapel.edit', [
+        return view('admin.mapel.edit', [
             'mapel' =>  $mapelId,
             'programs' => $program,
         ]);

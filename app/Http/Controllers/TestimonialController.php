@@ -16,7 +16,7 @@ class TestimonialController extends Controller
     {
         $testimonials = Testimonial::all();
 
-        return view('testimonial.index', [
+        return view('admin.testimonial.index', [
             'testimonials' => $testimonials,
         ]);
     }
@@ -26,7 +26,7 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('testimonial.create');
+        return view('admin.testimonial.create');
     }
 
     /**
@@ -70,7 +70,7 @@ class TestimonialController extends Controller
      */
     public function edit(Testimonial $testimonialId)
     {
-        return view('testimonial.edit', [
+        return view('admin.testimonial.edit', [
             'testimonial' => $testimonialId,
         ]);
     }

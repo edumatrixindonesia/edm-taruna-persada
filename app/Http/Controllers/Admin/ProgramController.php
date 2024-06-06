@@ -16,7 +16,7 @@ class ProgramController extends Controller
     {
         $programs = Program::all();
 
-        return view('program.index', [
+        return view('admin.program.index', [
             'programs' => $programs,
         ]);
     }
@@ -26,7 +26,7 @@ class ProgramController extends Controller
      */
     public function create()
     {
-        return view('program.create');
+        return view('admin.program.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class ProgramController extends Controller
      */
     public function edit(Program $programId)
     {
-        return view('program.edit', [
+        return view('admin.program.edit', [
             'program' => $programId,
         ]);
     }
