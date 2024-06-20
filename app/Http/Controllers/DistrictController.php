@@ -66,7 +66,7 @@ class DistrictController extends Controller
 
         Excel::import(new DistrictImport, $request->file('file'));
 
-        return redirect()->route('admin.district.index');
+        return redirect()->route('district.index');
     }
 
     /**
